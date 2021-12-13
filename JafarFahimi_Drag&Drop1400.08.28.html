@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        #Square1 {
+            border: 1px solid black;
+            background-color: rgb(23, 255, 0);
+            height: 50px;
+            width: 100px;
+        }
+
+        #Square2 {
+            border: 1px solid black;
+            background-color: rgb(23, 255, 0);
+            height: 50px;
+            width: 100px;
+        }
+
+        #Square3 {
+            border: 1px solid black;
+            background-color: rgb(23, 255, 0);
+            height: 50px;
+            width: 100px;
+        }
+
+        #Square4 {
+            border: 1px solid black;
+            background-color: rgb(23, 255, 0);
+            height: 50px;
+            width: 100px;
+        }
+
+        body {
+            display: relative;
+        }
+    </style>
+    <div>
+        <h1>Welcom to page Jafar Fahimi</h1>
+    </div>
+    <div>
+        <h2>Simple game: Use Ctrl and then Drag&Drop .You can use refresh to change the colors and location of the
+            boxes.</h2>
+    </div>
+    <div id="Square1" onmousedown="mouseDown1(event)" onmouseup="mouseUp1(event)" onmousemove="mouseMove1(event)">
+        <h1>1</h1>
+    </div>
+    <div id="Square2" onmousedown="mouseDown2(event)" onmouseup="mouseUp2(event)" onmousemove="mouseMove2(event)">
+        <h1>2</h1>
+    </div>
+    <div id="Square3" onmousedown="mouseDown3(event)" onmouseup="mouseUp3(event)" onmousemove="mouseMove3(event)">
+        <h1>3</h1>
+    </div>
+    <div id="Square4" onmousedown="mouseDown4(event)" onmouseup="mouseUp4(event)" onmousemove="mouseMove4(event)">
+        <h1>4</h1>
+    </div>
+    <script>
+        var flagmouseDown1 = false
+        var flagmouseUp1 = true
+        function mouseDown1(event) {
+            flagmouseDown1 = true
+            flagmouseUp1 = true
+
+        }
+        function mouseUp1(event) {
+            flagmouseUp1 = false
+            flagmouseDown1 = false
+        }
+        elm1 = document.getElementById("Square1")
+        elm2 = document.getElementById("Square2")
+        elm3 = document.getElementById("Square3")
+        elm4 = document.getElementById("Square4")
+
+        function SetPosition(elm) {
+            x = event.clientX - 50
+            y = event.clientY - 25
+            elm.style.top = `${y}px`
+            elm.style.left = `${x}px`
+        }
+        function mouseMove1(event) {
+            if (flagmouseDown1 && flagmouseUp1 && event.ctrlKey) {
+                SetPosition(elm1)
+            }
+        }
+
+        var flagmouseDown2 = false
+        var flagmouseUp2 = true
+
+        function mouseDown2(event) {
+            flagmouseDown2 = true
+            flagmouseUp2 = true
+
+        }
+        function mouseUp2(event) {
+            flagmouseUp2 = false
+            flagmouseDown2 = false
+
+        }
+        function mouseMove2(event) {
+            if (flagmouseDown2 && flagmouseUp2 && event.ctrlKey) {
+                SetPosition(elm2)
+            }
+        }
+
+        var flagmouseDown3 = false
+        var flagmouseUp3 = true
+
+        function mouseDown3(event) {
+            flagmouseDown3 = true
+            flagmouseUp3 = true
+
+        }
+        function mouseUp3(event) {
+            flagmouseUp3 = false
+            flagmouseDown3 = false
+
+
+        }
+        function mouseMove3(event) {
+            if (flagmouseDown3 && flagmouseUp3 && event.ctrlKey) {
+                SetPosition(elm3)
+            }
+        }
+
+        var flagmouseDown4 = false
+        var flagmouseUp4 = true
+
+        function mouseDown4(event) {
+            flagmouseDown4 = true
+            flagmouseUp4 = true
+        }
+        function mouseUp4(event) {
+            flagmouseUp4 = false
+            flagmouseDown4 = false
+
+        }
+        function mouseMove4(event) {
+            if (flagmouseDown4 && flagmouseUp4 && event.ctrlKey) {
+                SetPosition(elm4)
+            }
+        }
+
+
+        function RandomRgbcolor() {
+            x = 255 * Math.random()
+            y = 255 * Math.random()
+            z = 255 * Math.random()
+            let rgb_color = "rgb(" + x + "," + y + "," + z + ")"
+            return rgb_color
+        }
+
+        function styleElm(elm) {
+            TopRandom = 700 * Math.random()
+            LeftRandom = 700 * Math.random()
+            TopRandompx = `${TopRandom}` + "px"
+            LeftRandompx = `${LeftRandom}` + "px"
+            elm.style.backgroundColor = RandomRgbcolor()
+            elm.style.position = "absolute"
+            elm.style.top = TopRandompx
+            elm.style.left = LeftRandompx
+        }
+
+        styleElm(elm1)
+        styleElm(elm2)
+        styleElm(elm3)
+        styleElm(elm4)
+
+    </script>
+</body>
+
+</html>
